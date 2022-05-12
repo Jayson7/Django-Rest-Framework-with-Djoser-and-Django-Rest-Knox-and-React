@@ -26,6 +26,11 @@ const Homepage = () => {
           ) : (
             <div className="col-md-12">
               <h4>Welcome {authCheck}</h4>
+              <Link to="/signout">
+                <Button className="py-2 px-5" variant="primary">
+                  Sign Out
+                </Button>
+              </Link>
             </div>
           )}
         </div>
