@@ -1,8 +1,9 @@
 import React from 'react'
-import { Link, BrowserRouter, Route, Routes } from 'react-router-dom'
-import { Nav, Navbar, NavDropdown, Container } from 'react-bootstrap'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { Nav, Navbar, Container } from 'react-bootstrap'
 import Homepage from '../Home/homepage'
 import 'bootstrap/dist/css/bootstrap.min.css'
+import LoginAuth from '../authentication/Login/login'
 
 const Navigation = () => {
   return (
@@ -10,7 +11,7 @@ const Navigation = () => {
       <BrowserRouter>
         <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
           <Container>
-            <Navbar.Brand href="#home">Fake Auth</Navbar.Brand>
+            <Navbar.Brand href="/">Fake Auth</Navbar.Brand>
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
               <Nav className="me-auto">
@@ -28,7 +29,7 @@ const Navigation = () => {
 
         <Routes>
           <Route path="/" element={<Homepage />} />
-          {/* <Route path="/about" element={<About />} /> */}
+          <Route path="/login" element={<LoginAuth />} />
         </Routes>
       </BrowserRouter>
     </div>
