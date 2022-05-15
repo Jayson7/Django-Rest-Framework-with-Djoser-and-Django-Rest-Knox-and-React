@@ -25,13 +25,13 @@ const LoginAuth = () => {
     event.preventDefault()
     console.log(regdata)
     axios
-      .post('http://localhost:8000/api/auth/login', regdata)
+      .post('http://localhost:8000/auth/token/login', regdata)
       .then((res) => {
         console.log(res.data)
-        if (res.data.success) {
+        if (res.data) {
           window.location.href = '/'
         } else {
-          alert(res.data.message)
+          alert(res.data.token)
         }
       })
       .catch((err) => {
