@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import axios from 'axios'
 
 const LoginAuth = () => {
+  const dispatchs = useDispatch()
   const initialState = {
     username: '',
     password: '',
@@ -23,19 +24,25 @@ const LoginAuth = () => {
   }
   const Handlesubmit = (event) => {
     event.preventDefault()
-    console.log(regdata)
+    // console.log(regdata)
     axios
       .post('http://localhost:8000/auth/token/login', regdata)
       .then((res) => {
-        console.log(res.data)
         if (res.data) {
-          window.location.href = '/'
-        } else {
-          alert(res.data.token)
+          console.log(res.data)
+          dispatchs({
+            type: 'STORE_USER',
+            payload: {
+              username: username,
+              token: res.data.auth_token,
+              password: password,
+            },
+          })
         }
       })
       .catch((err) => {
         console.log(err)
+        alert('Invalid Credentials')
       })
   }
   const { username, password } = regdata

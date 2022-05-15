@@ -1,5 +1,5 @@
 import React from 'react'
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { BrowserRouter, Route, Routes, Link } from 'react-router-dom'
 import { Nav, Navbar, Container } from 'react-bootstrap'
 import Homepage from '../Home/homepage'
 import 'bootstrap/dist/css/bootstrap.min.css'
@@ -11,17 +11,24 @@ const Navigation = () => {
       <BrowserRouter>
         <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
           <Container>
-            <Navbar.Brand href="/">Fake Auth</Navbar.Brand>
+            <Navbar.Brand href="#">Fake Auth</Navbar.Brand>
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
               <Nav className="me-auto">
-                <Nav.Link href="#features">Features</Nav.Link>
-                <Nav.Link href="#pricing">Pricing</Nav.Link>
+                <Link className=" my-2  text-decoration-none text-white" to="/">
+                  Home
+                </Link>
+                <Link
+                  className=" my-2  text-decoration-none text-white"
+                  to="Login"
+                >
+                  Login
+                </Link>
               </Nav>
               <Nav>
-                <Nav.Link className="text-white" href="#">
+                <Link className=" my-2  text-white" to="#">
                   Profile
-                </Nav.Link>
+                </Link>
               </Nav>
             </Navbar.Collapse>
           </Container>
