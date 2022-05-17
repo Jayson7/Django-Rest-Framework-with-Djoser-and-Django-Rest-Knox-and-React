@@ -11,6 +11,7 @@ const Homepage = () => {
   const tokenCheck = useSelector((state) => state.authStore.token)
 
   if (authCheck !== 'anonymous') {
+    console.log(tokenCheck)
     axios
       .get('http://localhost:8000', {
         headers: {
