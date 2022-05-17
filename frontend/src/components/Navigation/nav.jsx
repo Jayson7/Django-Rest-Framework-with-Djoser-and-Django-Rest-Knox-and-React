@@ -16,7 +16,7 @@ const Navigation = () => {
       <BrowserRouter>
         <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
           <Container>
-            <Navbar.Brand href="#">Fake Auth</Navbar.Brand>
+            <Navbar.Brand href="#">FakeShop</Navbar.Brand>
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
               <Nav className="me-auto">
