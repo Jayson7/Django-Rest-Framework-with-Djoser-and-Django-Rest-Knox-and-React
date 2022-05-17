@@ -27,9 +27,13 @@ function Slider() {
               cumque quis sed nesciunt aliquid quae, aut repellat, officiis
               alias. Temporibus officia perspiciatis dicta!
             </div>
-            <div className="d-flex justify-content-between align-items-center">
-              <div className="btn btn-info">Latest Products</div>
-              <div className="btn btn-info">Latest Products</div>
+            <div className="d-flex justify-content-evenly align-items-center btn-wrap">
+              <div className="btn btn-info text-white py-2 my-5 ">
+                Latest Products
+              </div>
+              <div className="btn btn-dark  text-white py-2 px-5 my-4 ">
+                Best Offers
+              </div>
             </div>
           </div>
           <img className="slide-image" src={randomImage} alt="" />
