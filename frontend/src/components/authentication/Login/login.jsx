@@ -4,8 +4,10 @@ import { Form } from 'react-bootstrap'
 import { useReducer } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import axios from 'axios'
+import { useNavigate } from 'react-router-dom'
 
 const LoginAuth = () => {
+  const navigate = useNavigate()
   const dispatchs = useDispatch()
   const initialState = {
     username: '',
@@ -38,6 +40,8 @@ const LoginAuth = () => {
               password: password,
             },
           })
+          navigate('/')
+          alert('Login Success')
         }
       })
       .catch((err) => {
