@@ -4,8 +4,13 @@ import { Nav, Navbar, Container } from 'react-bootstrap'
 import Homepage from '../Home/homepage'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import LoginAuth from '../authentication/Login/login'
+import { useSelector } from 'react-redux'
+import NotFound from '../404/404'
+import Profile from '../Profile/profile'
+import SignoutAuth from '../authentication/Signout/signout.jsx'
 
 const Navigation = () => {
+  const authCheck = useSelector((state) => state.authStore.username)
   return (
     <div>
       <BrowserRouter>
@@ -15,15 +20,27 @@ const Navigation = () => {
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
               <Nav className="me-auto">
-                <Link className=" my-2  text-decoration-none text-white" to="/">
+                <Link
+                  className=" my-2 mx-2 text-decoration-none text-white"
+                  to="/"
+                >
                   Home
                 </Link>
-                <Link
-                  className=" my-2  text-decoration-none text-white"
-                  to="Login"
-                >
-                  Login
-                </Link>
+                {authCheck === 'anonymous' ? (
+                  <Link
+                    className=" my-2  mx-2  text-decoration-none text-white"
+                    to="Login"
+                  >
+                    Login
+                  </Link>
+                ) : (
+                  <Link
+                    className=" my-2  mx-2  text-decoration-none text-white"
+                    to="Signout"
+                  >
+                    Signout
+                  </Link>
+                )}
               </Nav>
               <Nav>
                 <Link className=" my-2  text-white" to="#">
@@ -37,6 +54,9 @@ const Navigation = () => {
         <Routes>
           <Route path="/" element={<Homepage />} />
           <Route path="/login" element={<LoginAuth />} />
+          <Route path="/signout" element={<SignoutAuth />} />
+          <Route path="/profile" element={<Profile />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
     </div>
