@@ -7,9 +7,11 @@ import AuthReducer from './Redux/Reducers/authReducer'
 import { Provider } from 'react-redux'
 import { createStore } from 'redux'
 import { combineReducers } from 'redux'
+import productReducer from './Redux/Reducers/prodductReducer'
 
 const allReducers = combineReducers({
   authStore: AuthReducer,
+  products: productReducer,
 })
 const store = createStore(allReducers, devToolsEnhancer())
 
@@ -18,6 +20,6 @@ root.render(
   <React.StrictMode>
     <Provider store={store}>
       <Navigation />
-    </Provider>
+    </Provider>{' '}
   </React.StrictMode>,
 )
