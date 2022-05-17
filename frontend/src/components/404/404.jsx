@@ -1,5 +1,5 @@
 import React from 'react'
-
+import { Link } from 'react-router-dom'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import './notfound.css'
 import a404 from '../../images/404a.jpg'
@@ -11,16 +11,19 @@ function NotFound() {
 
   return (
     <div>
-      <div className="notfoundImg">
+      <div className="notfoundImg my-3">
         <img className="r" src={randomImage} alt="" />
         <h1 className="ts">404</h1>
         <h5 className="t">
-          The page you requested for does not exist on put App{' '}
+          The page you requested for does not exist on our App{' '}
         </h5>
-        <div className="tbtn offset-5 ">
-          <button className="btn btn-success py-2 px-5 mx-5 mt-3 ">
+        <div className="d-flex justify-content-center align-items-center">
+          <Link
+            className="btn btn-success text-decoration-none py-2 w-50 my-2 "
+            to="/"
+          >
             Guide Me
-          </button>
+          </Link>
         </div>
       </div>
     </div>

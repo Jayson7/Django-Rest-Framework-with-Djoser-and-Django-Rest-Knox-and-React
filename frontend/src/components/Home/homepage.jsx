@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { Button } from 'react-bootstrap'
 import axios from 'axios'
+import Slider from './slider/slider'
 // import {}
 
 const Homepage = () => {
@@ -11,7 +12,6 @@ const Homepage = () => {
   const tokenCheck = useSelector((state) => state.authStore.token)
 
   if (authCheck !== 'anonymous') {
-    console.log(tokenCheck)
     axios
       .get('http://localhost:8000', {
         headers: {
@@ -25,7 +25,6 @@ const Homepage = () => {
         console.log(err)
       })
   }
-
   return (
     <div>
       <div className="container">
@@ -54,6 +53,7 @@ const Homepage = () => {
             </div>
           )}
         </div>
+        <Slider />
       </div>
     </div>
   )
