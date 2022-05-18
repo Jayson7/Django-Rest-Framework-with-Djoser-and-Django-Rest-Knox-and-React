@@ -8,6 +8,7 @@ import { useSelector } from 'react-redux'
 import NotFound from '../404/404'
 import Profile from '../Profile/profile'
 import SignoutAuth from '../authentication/Signout/signout.jsx'
+import Register from '../authentication/Registration/register'
 
 const Navigation = () => {
   const authCheck = useSelector((state) => state.authStore.username)
@@ -43,9 +44,18 @@ const Navigation = () => {
                 )}
               </Nav>
               <Nav>
-                <Link className=" my-2  text-white" to="#">
-                  Profile
-                </Link>
+                {authCheck === 'anonymous' ? (
+                  <Link
+                    className=" my-2  mx-2  text-decoration-none text-white"
+                    to="/register"
+                  >
+                    Register
+                  </Link>
+                ) : (
+                  <Link className=" my-2  text-white" to="#">
+                    Profile
+                  </Link>
+                )}
               </Nav>
             </Navbar.Collapse>
           </Container>
@@ -56,6 +66,7 @@ const Navigation = () => {
           <Route path="/login" element={<LoginAuth />} />
           <Route path="/signout" element={<SignoutAuth />} />
           <Route path="/profile" element={<Profile />} />
+          <Route path="/register" element={<Register />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
