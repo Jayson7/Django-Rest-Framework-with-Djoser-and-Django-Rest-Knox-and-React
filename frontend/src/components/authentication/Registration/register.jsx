@@ -32,8 +32,7 @@ const Register = () => {
       .then((res) => {
         if (res.data) {
           console.log(res.data)
-
-          navigate('login')
+          navigate('/login')
           alert('Account Registered Successfully')
         }
       })
@@ -48,7 +47,7 @@ const Register = () => {
       <div className="container">
         <div className="row">
           <div className="col-md-6 offset-md-3 my-5">
-            <h1 className="text-center"> Login </h1>{' '}
+            <h1 className="text-center"> Create An Account </h1>{' '}
             <Form onSubmit={Handlesubmit}>
               <Form.Group className="my-3">
                 <Form.Label> Username </Form.Label>{' '}
