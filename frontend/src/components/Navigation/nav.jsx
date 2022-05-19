@@ -33,13 +33,6 @@ const Navigation = () => {
                 >
                   Home
                 </Link>
-
-                <Link
-                  className=" my-2  mx-2  text-decoration-none text-white"
-                  to="Login"
-                >
-                  Login
-                </Link>
               </Nav>
               <Nav>
                 {authCheck === 'anonymous' ? (
