@@ -15,7 +15,13 @@ const Navigation = () => {
   return (
     <div>
       <BrowserRouter>
-        <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+        <Navbar
+          collapseOnSelect
+          expand="lg"
+          bg="dark"
+          variant="dark"
+          fixed="top"
+        >
           <Container>
             <Navbar.Brand href="#">FakeShop</Navbar.Brand>
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
