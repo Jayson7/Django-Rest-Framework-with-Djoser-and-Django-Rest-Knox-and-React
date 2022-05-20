@@ -3,7 +3,7 @@ export default function productReducer(state = {}, action) {
         case 'STORE_PRODUCT':
             return {
                 ...state,
-                product: action.payload.product,
+                ...action.payload,
             }
         case 'STORE_PRODUCT_CATEGORIES':
             return {

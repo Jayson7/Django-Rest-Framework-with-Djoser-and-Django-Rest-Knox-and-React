@@ -4,27 +4,24 @@ import axios from 'axios'
 function DisplayProducts() {
   const authCheck = useSelector((state) => state.authStore.username)
   const tokenCheck = useSelector((state) => state.authStore.token)
+  
   const dispatch = useDispatch()
 
-  const fetchLitteProducts = () => {
-    axios
-      .get('http://localhost:8000', {
-        headers: {
-          Authorization: `Token ${tokenCheck}`,
+  axios
+    .get('http://localhost:8000', {
+      headers: {
+        Authorization: `Token ${tokenCheck}`,
+      },
+    })
+    .then((res) => {
+      dispatch({
+        type: 'STORE_PRODUCT',
+        payload: {
+          ...res.data,
         },
       })
-      .then((res) => {
-        dispatch({
-          type: 'STORE_PRODUCT',
-          payload: {
-            ...res.data,
-          },
-        })
-      })
-      .catch((err) => {
-        console.log(err)
-      })
-  }
+    })
+    .catch((err) => {})
 
   return (
     <div>
@@ -33,7 +30,7 @@ function DisplayProducts() {
           Sign in or Create an Account to view latest products
         </p>
       ) : (
-        <p>Products</p>
+        
       )}
     </div>
   )
