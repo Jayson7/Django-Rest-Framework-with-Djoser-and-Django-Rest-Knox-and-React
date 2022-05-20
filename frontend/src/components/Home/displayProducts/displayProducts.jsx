@@ -1,9 +1,10 @@
 import React from 'react'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import axios from 'axios'
 function DisplayProducts() {
   const authCheck = useSelector((state) => state.authStore.username)
   const tokenCheck = useSelector((state) => state.authStore.token)
+  const dispatch = useDispatch()
 
   const fetchLitteProducts = () => {
     axios
@@ -13,7 +14,12 @@ function DisplayProducts() {
         },
       })
       .then((res) => {
-        console.log(res.data)
+        dispatch({
+          type: 'STORE_PRODUCT',
+          payload: {
+            ...res.data,
+          },
+        })
       })
       .catch((err) => {
         console.log(err)

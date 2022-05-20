@@ -1,10 +1,6 @@
-export const storeProduct = (name_of_product, price, quantity) => ({
+export const storeProduct = (product) => ({
     type: 'STORE_PRODUCT',
-    payload: {
-        name_of_product,
-        price,
-        quantity,
-    },
+    payload: {...product },
 })
 
 export const storeProductCategories = (category) => ({
