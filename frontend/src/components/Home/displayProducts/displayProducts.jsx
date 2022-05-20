@@ -1,10 +1,11 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
+import 'bootstrap/dist/css/bootstrap.min.css'
 import axios from 'axios'
 function DisplayProducts() {
   const authCheck = useSelector((state) => state.authStore.username)
   const tokenCheck = useSelector((state) => state.authStore.token)
-  
+  const products = useSelector((state) => state.productsStore.products)
   const dispatch = useDispatch()
 
   axios
@@ -30,6 +31,7 @@ function DisplayProducts() {
           Sign in or Create an Account to view latest products
         </p>
       ) : (
+        
         
       )}
     </div>

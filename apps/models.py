@@ -18,7 +18,8 @@ class Product(models.Model):
     quantity = models.IntegerField(default=1)
     image = models.ImageField(upload_to='images/')
     category = models.CharField(max_length=1, choices=CATEGORIES, default='O')
-        
+    views = models.IntegerField(default=0)
+
     
     
     def __str__(self):
