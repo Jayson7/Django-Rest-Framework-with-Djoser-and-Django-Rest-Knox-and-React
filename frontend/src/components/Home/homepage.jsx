@@ -32,10 +32,12 @@ const Homepage = () => {
     if (products) {
       return products.map((product) => {
         return (
-          <div className="col-md-4" key={product.id}>
+          <div className="col-md-4">
             <div className="card">
               <div className="card-body">
-                <h5 className="card-title">{product.name_of_product}</h5>
+                <h5 className="card-title" key={product.id}>
+                  {product.name_of_product}
+                </h5>
                 <p className="card-text">{product.description}</p>
                 <p className="card-text">{product.price}</p>
                 <p className="card-text">{product.quantity}</p>
