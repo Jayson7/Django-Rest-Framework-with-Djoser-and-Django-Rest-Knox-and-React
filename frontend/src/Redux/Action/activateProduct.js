@@ -1,6 +1,6 @@
 export const storeProduct = (product) => ({
     type: 'STORE_PRODUCT',
-    payload: {...product },
+    payload: product,
 })
 
 export const storeProductCategories = (category) => ({
