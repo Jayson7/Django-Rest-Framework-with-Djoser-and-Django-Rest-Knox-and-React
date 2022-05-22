@@ -1,4 +1,6 @@
 import React from 'react'
+import { useSelector } from 'react-redux'
+
 import './homepage.css'
 import 'bootstrap/dist/css/bootstrap.min.css'
 // import { useSelector } from 'react-redux'
@@ -9,6 +11,8 @@ import Slider from './slider/slider'
 // import {}
 import DisplayProducts from './displayProducts/displayProducts'
 const Homepage = () => {
+  const products = useSelector((state) => state.products.product)
+
   return (
     <div>
       <div className="homepage-wrapper">
@@ -24,7 +28,7 @@ const Homepage = () => {
           </Link>{' '}
         </div>{' '}
         <div className="homepage-content-bottom my-5">
-          <h4>New Arrivals </h4> {<DisplayProducts />}
+          <h4> New Arrivals </h4> <DisplayProducts />
         </div>{' '}
       </div>{' '}
     </div>

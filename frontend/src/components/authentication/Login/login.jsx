@@ -78,7 +78,7 @@ const LoginAuth = () => {
                   required
                   name="password"
                 />
-              </Form.Group>
+              </Form.Group>{' '}
               <button className="btn btn-primary btn-block"> Login </button>{' '}
             </Form>{' '}
           </div>{' '}
