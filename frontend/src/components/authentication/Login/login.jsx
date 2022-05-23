@@ -22,6 +22,7 @@ const LoginAuth = () => {
   }
   const [regdata, dispatch] = useReducer(monitorReducer, initialState)
   const onchange = (e) => {
+    e.preventDefault()
     dispatch({ field: e.target.name, value: e.target.value })
   }
   const Handlesubmit = (event) => {

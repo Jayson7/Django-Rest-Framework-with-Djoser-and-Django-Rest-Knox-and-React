@@ -53,8 +53,17 @@ const Navigation = () => {
                   </>
                 ) : (
                   <>
-                    <Link className=" my-2  mx-2 text-white" to="#">
-                      Profile
+                    <Link
+                      className=" my-2  mx-2 text-white text-decoration-none text-capitalize"
+                      to="#"
+                    >
+                      {authCheck}
+                    </Link>
+                    <Link
+                      className=" my-2  mx-2 text-white text-decoration-none text-capitalize"
+                      to="/signout"
+                    >
+                      logout
                     </Link>
                   </>
                 )}

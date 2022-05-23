@@ -8,3 +8,8 @@ export const storeUser = (username, password, token) => {
         },
     }
 }
+export const logout = () => {
+    return {
+        type: 'LOGOUT',
+    }
+}

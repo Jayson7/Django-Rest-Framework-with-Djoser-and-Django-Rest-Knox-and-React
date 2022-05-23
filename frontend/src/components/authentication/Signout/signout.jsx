@@ -1,36 +1,32 @@
 import React from 'react'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios'
 
 function SignoutAuth() {
-  const navigate = useNavigate()
-  const authCheck = useSelector((state) => state.authStore.username)
-  const tokenCheck = useSelector((state) => state.authStore.token)
-  if (authCheck === 'anonymous') {
-    navigate('/login')
-  } else {
-    axios
-      .get('http://localhost:8000/auth/token/logout', {
-        headers: {
-          Authorization: `Token ${tokenCheck}`,
-        },
-      })
-      .then((res) => {
-        if (res.data) {
-          console.log(res.data)
-          navigate('/login')
-          alert('Logout Successfully')
-        }
-      })
-      .catch((err) => {
-        console.log(err)
-        alert('Invalid Credentials')
+    const dispatch = useDispatch()
+    const navigate = useNavigate()
+    const authCheck = useSelector((state) => state.authStore.username)
+    const tokenCheck = useSelector((state) => state.authStore.token)
+    if (authCheck === 'anonymous') {
         navigate('/login')
-      })
-  }
-
-  return <div></div>
+    } else {
+        axios
+            .post('http://localhost:8000/auth/token/logout', {
+                headers: {
+                    Authorization: `Token ${tokenCheck}`,
+                },
+            })
+            .then((res) => {
+                dispatch({
+                    type: 'LOGOUT',
+                })
+                navigate('/login')
+            })
+            .catch((err) => {
+                console.log(err)
+            })
+    }
 }
 
 export default SignoutAuth

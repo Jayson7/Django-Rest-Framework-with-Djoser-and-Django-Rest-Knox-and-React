@@ -44,10 +44,10 @@ const Register = () => {
   const { username, password, email } = regdata
   return (
     <div>
-      <div className="container">
+      <div className="container my-5">
         <div className="row">
           <div className="col-md-6 offset-md-3 my-5">
-            <h1 className="text-center"> Create An Account </h1>{' '}
+            <h1 className="text-center mt-5 "> Create An Account </h1>{' '}
             <Form onSubmit={Handlesubmit}>
               <Form.Group className="my-3">
                 <Form.Label> Username </Form.Label>{' '}
