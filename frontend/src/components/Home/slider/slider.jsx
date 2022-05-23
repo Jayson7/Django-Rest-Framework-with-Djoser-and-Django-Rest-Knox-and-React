@@ -6,7 +6,8 @@ import a1 from '../../../images/slider/a1.jpg'
 import b from '../../../images/slider/2.jpg'
 import c from '../../../images/slider/3.jpg'
 import './slider.css'
-import { useSelector } from 'react-redux'
+
+// import { useSelector } from 'react-redux'
 
 function Slider() {
   const slidesWithAnimation = () => {
