@@ -48,6 +48,7 @@ const LoginAuth = () => {
       .catch((err) => {
         console.log(err)
         alert('Invalid Credentials')
+        window.location.reload()
       })
   }
   const { username, password } = regdata

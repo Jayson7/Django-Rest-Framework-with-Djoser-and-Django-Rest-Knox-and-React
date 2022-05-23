@@ -21,6 +21,7 @@ function SignoutAuth() {
                 dispatch({
                     type: 'LOGOUT',
                 })
+                window.location.reload()
                 navigate('/login')
             })
             .catch((err) => {

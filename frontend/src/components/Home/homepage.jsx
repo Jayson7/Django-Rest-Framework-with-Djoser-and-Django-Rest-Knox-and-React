@@ -15,19 +15,22 @@ const Homepage = () => {
   const authCheck = useSelector((state) => state.authStore.token)
   const dispatch = useDispatch()
   axios.defaults.headers.common['Authorization'] = `token ${authCheck}`
+
   useEffect(() => {
-    axios
-      .get('http://localhost:8000')
-      .then((res) => {
-        dispatch({
-          type: 'STORE_PRODUCT',
-          payload: res.data,
+    if (authCheck) {
+      axios
+        .get('http://localhost:8000')
+        .then((res) => {
+          dispatch({
+            type: 'STORE_PRODUCT',
+            payload: res.data,
+          })
         })
-      })
-      .catch((err) => {
-        console.log(err)
-      })
-  }, [authCheck])
+        .catch((err) => {
+          console.log(err)
+        })
+    }
+  }, [])
   const DisplayProducts = () => {
     if (products) {
       return products.map((product) => {
@@ -86,15 +89,16 @@ const Homepage = () => {
         <div className="row">
           <div className="col-md-12">
             <div className="jumbotron bg-dark py-5 px-4 text-white">
-              <h1 className="display-4">Welcome to the Homepage</h1>
+              <h1 className="display-4">Welcome to FakeShop</h1>
               <p className="lead">
-                This is a simple hero unit, a simple jumbotron-style component
-                for calling extra attention to featured content or information.
+                We sell only sell real products and we are not selling fake
+                products but we are selling the things that you need. A brand
+                you can trust.
               </p>
               <hr className="my-4" />
               <p>
-                It uses utility classes for typography and spacing to space
-                content out within the larger container.
+                We have multiple categories of products and we are always ready
+                to help you.
               </p>
               <p className="lead">
                 <Link to="/products" className="btn btn-primary btn-lg">

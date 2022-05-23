@@ -27,12 +27,41 @@ const Navigation = () => {
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
               <Nav className="me-auto">
-                <Link
-                  className=" my-2 mx-2 text-decoration-none text-white"
-                  to="/"
-                >
-                  Home
-                </Link>
+                if(authCheck)
+                {
+                  <>
+                    <Link
+                      className=" my-2  text-decoration-none text-white"
+                      to="/"
+                    >
+                      Home
+                    </Link>
+                    <Link
+                      className=" my-2  mx-2  text-decoration-none text-white"
+                      to="/"
+                    >
+                      Categories
+                    </Link>
+                    <Link
+                      className=" my-2  mx-2  text-decoration-none text-white"
+                      to="/"
+                    >
+                      Popular
+                    </Link>
+                    <Link
+                      className=" my-2  mx-2  text-decoration-none text-white"
+                      to="/"
+                    >
+                      Cart
+                    </Link>
+                    <Link
+                      className=" my-2  mx-2  text-decoration-none text-white"
+                      to="/"
+                    >
+                      Help
+                    </Link>
+                  </>
+                }
               </Nav>
 
               <Nav>
