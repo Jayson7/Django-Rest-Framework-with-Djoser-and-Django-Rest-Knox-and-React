@@ -7,10 +7,12 @@ import { useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { Button } from 'react-bootstrap'
 import axios from 'axios'
-// import Slider from './slider/slider'
+import Slider from './slider/slider'
 
 const Homepage = () => {
   const products = useSelector((state) => state.products.product)
+  const products_strip = products.slice(0, 5)
+  // console.log(products_strip)
   // const user = useSelect(state)
   const authCheck = useSelector((state) => state.authStore.token)
   const dispatch = useDispatch()
@@ -33,7 +35,7 @@ const Homepage = () => {
   }, [])
   const DisplayProducts = () => {
     if (products) {
-      return products.map((product) => {
+      return products_strip.map((product) => {
         return (
           <div key={product.id} className="col-md-4">
             <div className="card m-3">
@@ -108,7 +110,6 @@ const Homepage = () => {
             </div>
           </div>
           <br />
-
           <div className="container my-5">
             <h4 className="text-center my-5 h2">Latest Products</h4>
             <div className="container">
@@ -117,6 +118,8 @@ const Homepage = () => {
           </div>
         </div>
       </div>
+      {/* carrousel */}
+      <Slider />
     </div>
   )
 }
