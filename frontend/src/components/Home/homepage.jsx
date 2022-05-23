@@ -34,11 +34,9 @@ const Homepage = () => {
         return (
           <div className="col-md-4">
             <div className="card">
-              <div className="card-body">
-                <img src={`product.image`} alt="" />
-                <h5 className="card-title" key={product.id}>
-                  {product.name_of_product}
-                </h5>
+              <div className="card-body" key={product.id}>
+                <img className="card-image" src={product.image} alt="" />
+                <h5 className="card-title">{product.name_of_product}</h5>
                 <p className="card-text">{product.created_at}</p>
                 <p className="card-text">{product.owner}</p>
                 <p className="card-text">{product.category}</p>

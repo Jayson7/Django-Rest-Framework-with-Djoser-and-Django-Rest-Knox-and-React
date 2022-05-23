@@ -34,18 +34,29 @@ const Navigation = () => {
                   Home
                 </Link>
               </Nav>
+
               <Nav>
                 {authCheck === 'anonymous' ? (
-                  <Link
-                    className=" my-2  mx-2  text-decoration-none text-white"
-                    to="/register"
-                  >
-                    Register
-                  </Link>
+                  <>
+                    <Link
+                      className=" my-2  mx-2  text-decoration-none text-white"
+                      to="/register"
+                    >
+                      Register
+                    </Link>
+                    <Link
+                      className=" my-2 mx-2  text-white text-decoration-none"
+                      to="/login"
+                    >
+                      Login
+                    </Link>
+                  </>
                 ) : (
-                  <Link className=" my-2  text-white" to="#">
-                    Profile
-                  </Link>
+                  <>
+                    <Link className=" my-2  mx-2 text-white" to="#">
+                      Profile
+                    </Link>
+                  </>
                 )}
               </Nav>
             </Navbar.Collapse>

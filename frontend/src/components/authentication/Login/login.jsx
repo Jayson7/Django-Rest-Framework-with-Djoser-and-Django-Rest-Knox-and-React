@@ -52,7 +52,9 @@ const LoginAuth = () => {
   const { username, password } = regdata
   return (
     <div>
-      <div className="container">
+      <br />
+      <br />
+      <div className="container mt-5">
         <div className="row">
           <div className="col-md-6 offset-md-3 my-5">
             <h1 className="text-center"> Login </h1>{' '}
