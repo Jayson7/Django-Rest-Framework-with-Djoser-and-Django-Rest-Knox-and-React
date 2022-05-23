@@ -84,7 +84,7 @@ const Navigation = () => {
                   <>
                     <Link
                       className=" my-2  mx-2 text-white text-decoration-none text-capitalize"
-                      to="#"
+                      to="/profile"
                     >
                       {authCheck}
                     </Link>

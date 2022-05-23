@@ -10,22 +10,22 @@ function NotFound() {
   const randomImage = images[Math.floor(Math.random() * images.length)]
 
   return (
-    <div>
-      <div className="notfoundImg my-3">
-        <img className="r" src={randomImage} alt="" />
-        <h1 className="ts">404</h1>
+    <div className="container mt-5">
+      <div className="notfoundImg mt-5">
+        <img className="r mt-5" src={randomImage} alt="" />
+        <h1 className="ts"> 404 </h1>{' '}
         <h5 className="t">
           The page you requested for does not exist on our App{' '}
-        </h5>
+        </h5>{' '}
         <div className="d-flex justify-content-center align-items-center">
           <Link
             className="btn btn-success text-decoration-none py-2 w-50 my-2 "
             to="/"
           >
-            Guide Me
-          </Link>
-        </div>
-      </div>
+            Guide Me{' '}
+          </Link>{' '}
+        </div>{' '}
+      </div>{' '}
     </div>
   )
 }
