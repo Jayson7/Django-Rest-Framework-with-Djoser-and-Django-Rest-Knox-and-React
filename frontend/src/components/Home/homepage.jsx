@@ -27,26 +27,36 @@ const Homepage = () => {
       .catch((err) => {
         console.log(err)
       })
-  }, [])
+  }, [authCheck])
   const DisplayProducts = () => {
     if (products) {
       return products.map((product) => {
         return (
-          <div className="col-md-4">
-            <div className="card">
-              <div className="card-body" key={product.id}>
+          <div key={product.id} className="col-md-4">
+            <div className="card m-3">
+              <div className="card-body">
                 <img className="card-image" src={product.image} alt="" />
-                <h5 className="card-title">{product.name_of_product}</h5>
-                <p className="card-text">{product.created_at}</p>
-                <p className="card-text">{product.owner}</p>
-                <p className="card-text">{product.category}</p>
-                <p className="card-text">{product.price}</p>
-                <p className="card-text">{product.quantity}</p>
-                <p className="card-text">{product.views}</p>
-
-                <Link to={`/product/${product.id}`}>
-                  <Button variant="primary">View</Button>
-                </Link>
+                <h5 className="card-title text-center my-2 h3 text-capitalize">
+                  {product.name_of_product}
+                </h5>
+                <div className="d-flex justify-content-around align-content-center flex-column h6 my-3">
+                  <p className="card-text">Cateory: {product.category}</p>
+                  <p className="card-text">Price: {product.price}</p>
+                  <p className="card-text">Quantity: {product.quantity}</p>
+                  <p className="card-text">Views: {product.views}</p>
+                </div>
+                <div className="d-flex align-content-center justify-content-evenly flex-wrap">
+                  <Link to={`/product/${product.id}`}>
+                    <Button variant="primary" className="mx-2 my-2 px-5">
+                      View
+                    </Button>
+                  </Link>
+                  <Link to={`/product/${product.id}`}>
+                    <Button variant="primary" className="mx-2 my-2 px-4">
+                      Add to Cart
+                    </Button>
+                  </Link>
+                </div>
               </div>
             </div>
           </div>
@@ -97,7 +107,9 @@ const Homepage = () => {
 
           <div className="container my-5">
             <h4 className="text-center my-5 h2">Latest Products</h4>
-            <div className="row">{<DisplayProducts />}</div>
+            <div className="container">
+              <div className="row">{<DisplayProducts />}</div>
+            </div>
           </div>
         </div>
       </div>
