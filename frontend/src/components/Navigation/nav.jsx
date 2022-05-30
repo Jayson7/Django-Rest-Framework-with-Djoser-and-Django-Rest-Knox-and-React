@@ -9,7 +9,7 @@ import NotFound from "../404/404";
 import Profile from "../Profile/profile";
 import SignoutAuth from "../authentication/Signout/signout.jsx";
 import Register from "../authentication/Registration/register";
-
+import ViewProduct from "../productsFolder/singleProduct/singleProduct";
 const Navigation = () => {
   const authCheck = useSelector((state) => state.authStore.username);
   return (
@@ -104,8 +104,9 @@ const Navigation = () => {
           <Route path="/" element={<Homepage />} />
           <Route path="/login" element={<LoginAuth />} />
           <Route path="/signout" element={<SignoutAuth />} />
-          <Route path="/profile" element={<Profile />} />
+          <Route path="/profile" element={<Profile />} />=
           <Route path="/register" element={<Register />} />
+          <Route path="/product/:id" element={<ViewProduct />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
