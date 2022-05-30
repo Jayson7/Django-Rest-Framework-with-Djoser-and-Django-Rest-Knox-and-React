@@ -1,51 +1,51 @@
-import React from 'react'
-import { useSelector } from 'react-redux'
-import { useEffect } from 'react'
-import './homepage.css'
-import 'bootstrap/dist/css/bootstrap.min.css'
-import { useDispatch } from 'react-redux'
-import { Link } from 'react-router-dom'
-import { Button } from 'react-bootstrap'
-import axios from 'axios'
-import Slider from './slider/slider'
+import React from "react";
+import { useSelector } from "react-redux";
+import { useEffect } from "react";
+import "./homepage.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+import { useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
+import { Button } from "react-bootstrap";
+import axios from "axios";
+import Slider from "./slider/slider";
 
 const Homepage = () => {
-  const products = useSelector((state) => state.products.product)
-  const products_strip = products.slice(0, 5)
+  const products = useSelector((state) => state.products.product);
   // console.log(products_strip)
   // const user = useSelect(state)
-  const authCheck = useSelector((state) => state.authStore.token)
-  const dispatch = useDispatch()
-  axios.defaults.headers.common['Authorization'] = `token ${authCheck}`
+  const authCheck = useSelector((state) => state.authStore.token);
+  const dispatch = useDispatch();
+  axios.defaults.headers.common["Authorization"] = `token ${authCheck}`;
 
   useEffect(() => {
     if (authCheck) {
       axios
-        .get('http://localhost:8000')
+        .get("http://localhost:8000")
         .then((res) => {
           dispatch({
-            type: 'STORE_PRODUCT',
+            type: "STORE_PRODUCT",
             payload: res.data,
-          })
+          });
         })
         .catch((err) => {
-          console.log(err)
-        })
+          console.log(err);
+        });
     }
-  }, [])
+  }, []);
   const DisplayProducts = () => {
     if (products) {
+      const products_strip = products.slice(0, 5);
       return products_strip.map((product) => {
         return (
           <div key={product.id} className="col-md-4">
-            <div className="card m-3">
+            <div className="card m-3 bg-light">
               <div className="card-body">
                 <img className="card-image" src={product.image} alt="" />
                 <h5 className="card-title text-center my-2 h3 text-capitalize">
                   {product.name_of_product}
                 </h5>
                 <div className="d-flex justify-content-around align-content-center flex-column h6 my-3">
-                  <p className="card-text">Cateory: {product.category}</p>
+                  <p className="card-text">Category: {product.category}</p>
                   <p className="card-text">Price: {product.price}</p>
                   <p className="card-text">Quantity: {product.quantity}</p>
                   <p className="card-text">Views: {product.views}</p>
@@ -65,8 +65,8 @@ const Homepage = () => {
               </div>
             </div>
           </div>
-        )
-      })
+        );
+      });
     } else {
       return (
         <div className="col-md-12">
@@ -78,9 +78,9 @@ const Homepage = () => {
             </div>
           </div>
         </div>
-      )
+      );
     }
-  }
+  };
 
   return (
     <div>
@@ -121,6 +121,6 @@ const Homepage = () => {
       {/* carrousel */}
       <Slider />
     </div>
-  )
-}
-export default Homepage
+  );
+};
+export default Homepage;
