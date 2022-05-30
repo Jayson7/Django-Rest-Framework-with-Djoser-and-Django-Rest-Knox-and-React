@@ -6,3 +6,8 @@
     object-fit: contain;
     object-position: center;
 }
+
+body {
+    background-color: #1b4451;
+    color: rgb(111, 111, 111);
+}

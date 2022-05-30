@@ -1,13 +1,13 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import { useEffect } from "react";
-import "./homepage.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { Button } from "react-bootstrap";
 import axios from "axios";
 import Slider from "./slider/slider";
+import "./homepage.css";
 
 const Homepage = () => {
   const products = useSelector((state) => state.products.product);
@@ -111,7 +111,7 @@ const Homepage = () => {
           </div>
           <br />
           <div className="container my-5">
-            <h4 className="text-center my-5 h2">Latest Products</h4>
+            <h4 className="text-center my-5 h2 text-light">Latest Products</h4>
             <div className="container">
               <div className="row">{<DisplayProducts />}</div>
             </div>

@@ -1,17 +1,17 @@
-import React from 'react'
-import { BrowserRouter, Route, Routes, Link } from 'react-router-dom'
-import { Nav, Navbar, Container } from 'react-bootstrap'
-import Homepage from '../Home/homepage'
-import 'bootstrap/dist/css/bootstrap.min.css'
-import LoginAuth from '../authentication/Login/login'
-import { useSelector } from 'react-redux'
-import NotFound from '../404/404'
-import Profile from '../Profile/profile'
-import SignoutAuth from '../authentication/Signout/signout.jsx'
-import Register from '../authentication/Registration/register'
+import React from "react";
+import { BrowserRouter, Route, Routes, Link } from "react-router-dom";
+import { Nav, Navbar, Container } from "react-bootstrap";
+import Homepage from "../Home/homepage";
+import "bootstrap/dist/css/bootstrap.min.css";
+import LoginAuth from "../authentication/Login/login";
+import { useSelector } from "react-redux";
+import NotFound from "../404/404";
+import Profile from "../Profile/profile";
+import SignoutAuth from "../authentication/Signout/signout.jsx";
+import Register from "../authentication/Registration/register";
 
 const Navigation = () => {
-  const authCheck = useSelector((state) => state.authStore.username)
+  const authCheck = useSelector((state) => state.authStore.username);
   return (
     <div>
       <BrowserRouter>
@@ -27,8 +27,7 @@ const Navigation = () => {
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
               <Nav className="me-auto">
-                if(authCheck)
-                {
+                {authCheck ? (
                   <>
                     <Link
                       className=" my-2  text-decoration-none text-white"
@@ -61,11 +60,11 @@ const Navigation = () => {
                       Help
                     </Link>
                   </>
-                }
+                ) : null}
               </Nav>
 
               <Nav>
-                {authCheck === 'anonymous' ? (
+                {authCheck === "anonymous" ? (
                   <>
                     <Link
                       className=" my-2  mx-2  text-decoration-none text-white"
@@ -111,7 +110,7 @@ const Navigation = () => {
         </Routes>
       </BrowserRouter>
     </div>
-  )
-}
+  );
+};
 
-export default Navigation
+export default Navigation;
