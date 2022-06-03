@@ -24,5 +24,12 @@ class Product(models.Model):
     
     def __str__(self):
         return self.name_of_product
+
+class CartProduct(models.Model):
+    owner = models.ForeignKey('auth.User', related_name='carts', on_delete=models.CASCADE)
+    product = models.ForeignKey('Product', related_name='addproduct', on_delete=models.CASCADE)    
+    quantity = models.IntegerField(default=1)
+    price = models.IntegerField()
     
-    
+    def __str__(self):
+        return self.product.name_of_product
